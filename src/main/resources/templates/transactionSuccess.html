@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <title>Result</title>
+</head>
+<body>
+<h3 th:if='${!status}' th:text='${statusText}' style='color: red;'></h3>
+<h3 th:if='${status}'  th:text='${statusText}' style='color: green;'></h3>
+<!--    <div id="show-status">-->
+    <div>Status: <span th:text='${status}' /></div>
+    <div>Transaction id.: <span th:text='${chargeId}' /></div>
+
+<a href='/donorview'>Back</a>
+</body>
+</html>

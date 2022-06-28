@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link th:href="@{/styles/css/registration.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/toast.js}"></script>
+    <title>Registration Page</title>
+</head>
+
+<div th:replace="signupheader.html::signupheader"></div>
+
+<section class="vh-100 bg-white">
+
+
+    <div class="container h-100" style="margin-top: .50rem">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+
+            <div class="col-lg-12 col-xl-11 ">
+                <div class="card text-black shadow-lg font-weight-bold bg-info opacity-75" style="border-radius: 25px;">
+                    <div class="card-body p-md-5">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                                <div th:if="${param.emailSent}">
+                                    <div class="toast  bg-info text-white fade show" id="myToast"
+                                         data-bs-autohide="false">
+                                        <div class="toast-header alert-info border-bottom border-info">
+                                            <strong class="me-auto"><i class="bi-gift-fill"></i> Registration email sent
+                                                successfully</strong>
+                                            <button type="button" class="btn-close" id="hideBtn"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div th:if="${param.emailFound}">
+                                    <div class="toast alert alert-warning fade show notification" id="myToast1"
+                                         data-bs-autohide="false">
+                                        <div class="toast-header alert-warning">
+                                            <strong class="me-auto alert-warning "><i class="bi-gift-fill"></i> Email already
+                                                Exist</strong>
+                                            <button type="button" class="btn-close" id="hideBtn1"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script th:inline="javascript">
+                                    var element = document.getElementById("myToast1");
+                                    var btn = document.getElementById("hideBtn1")
+                                    // Create toast instance
+                                    var myToast = new bootstrap.Toast(element);
+
+
+                                    btn.addEventListener("click", function () {
+                                        myToast.hide();
+                                    });
+
+                                </script>
+
+
+                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+
+                                <form th:action="@{/api/v1/registration}" method="POST" th:object="${user}"
+                                      class="mx-1 mx-md-4">
+
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" id="form3Example1c" class="form-control"
+                                                   placeholder="FirstName" th:field="*{firstName}" required
+                                                   autofocus="autofocus"/>
+                                            <div class="alert alert-warning" th:if="${#fields.hasErrors('firstName')}"
+                                                 th:errors="*{firstName}"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" id="form3Example2c" class="form-control"
+                                                   placeholder="LastName" th:field="*{lastName}" required
+                                                   autofocus="autofocus"/>
+                                            <div class="alert alert-warning" th:if="${#fields.hasErrors('lastName')}"
+                                                 th:errors="*{lastName}"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4  ">
+                                        <i class="fas fa-user fa-lg me-3 fa-fw "></i>
+                                        <div class="form-outline flex-fill mb-0 bg-info">
+                                            <select id="demo_overview_minimal" class="form-control"
+                                                    data-role="select-dropdown" data-profile="minimal"
+                                                    th:field="*{application_user_role}">
+                                                <option th:value="Donor" th:text="DONOR"></option>
+                                                <option th:value="Rider" th:text="RIDER"></option>
+                                                <option th:value="Patient" th:text="PATIENT"></option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="number" id="form3Example8c" class="form-control"
+                                                   placeholder="PhoneNumber" th:field="*{phone_number}" required
+                                                   autofocus="autofocus"/>
+                                            <div class="alert alert-warning"
+                                                 th:if="${#fields.hasErrors('phone_number')}"
+                                                 th:errors="*{phone_number}"></div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="email" id="form3Example3c" class="form-control"
+                                                   placeholder="Email" th:field="*{email}" required
+                                                   autofocus="autofocus"/>
+                                            <div class="alert alert-warning" th:if="${#fields.hasErrors('email')}"
+                                                 th:errors="*{email}"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="password" id="form3Example4c" class="form-control"
+                                                   placeholder="Password" th:field="*{password}" required
+                                                   autofocus="autofocus"/>
+                                            <div class="alert alert-warning" th:if="${#fields.hasErrors('password')}"
+                                                 th:errors="*{password}"></div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="password" id="form3Example4cd" class="form-control"
+                                                   placeholder="Confirm Password" th:field="*{confirm_password}"
+                                                   required autofocus="autofocus"/>
+                                            <div class="alert alert-warning" th:if="${#fields.hasErrors('password')}"
+                                                 th:errors="*{password}"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                        <button type="submit" class="btn btn-outline-light btn-lg">Register</button>
+                                    </div>
+                                    <!-- <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                         <span> Already Registered? <a  class="bg-white" href="/" th:href="@{/api/v1/login}"> Go to Login Page</a></span>
+                                     </div>-->
+
+                                </form>
+
+                            </div>
+                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                                <img th:src="@{/images/donate.png}" width="auto" height="auto" class="img-fluid" alt="Sample image">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small ">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2022 Copyright:
+            <a href="#" class="text-info"> bethedonor.com </a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+
+</section>
+
+</html>

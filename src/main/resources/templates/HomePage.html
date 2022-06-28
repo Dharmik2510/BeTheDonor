@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<head>
+  <link th:href="@{/styles/css/homepage.css}" rel="stylesheet"/>
+  <title>Be The Donor</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body id="myPage">
+
+<section class="vh-100 " >
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme-d2 w3-left-align bg-info">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button bg-dark"><i class="fa fa-home w3-margin-right"></i>Home</a>
+    <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Team</a>
+    <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Work</a>
+    <a href="#roles" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Roles</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+
+    <div class="w3-dropdown-hover w3-hide-small">
+      <button class="w3-button" title="Notifications">More Information <i class="fa fa-caret-down"></i></button>
+      <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+        <a th:href="@{/api/v1/analytics}" class="w3-bar-item w3-button">Analytics</a>
+      </div>
+    </div>
+    <a th:href="@{/api/v1/registration}" class="w3-button w3-right w3-theme">Register</a>
+    <a th:href="@{/api/v1/login}" class="w3-button w3-right w3-theme">Login</a>
+
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
+    <a href="#team" class="w3-bar-item w3-button">Team</a>
+    <a href="#work" class="w3-bar-item w3-button">Work</a>
+    <a href="#roles" class="w3-bar-item w3-button">Roles</a>
+    <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+  </div>
+</div>
+
+<!-- Image Header -->
+<div class="w3-display-container w3-animate-opacity" id="home">
+  <img th:src="@{/images/donate6.jpg}" alt="boat" style="width:70%;min-height:350px;max-height:600px; display: block" >
+  <div class="w3-container w3-display-bottomleft w3-margin-bottom">
+    <a class="w3-button w3-xlarge w3-theme bg-info w3-hover-border-gray" title="Donate Anonymously" th:href="@{/donate}">Click Here To Donate Anonymously</a>
+  </div>
+</div>
+
+
+<!-- Team Container -->
+<div class="w3-container w3-padding-64 w3-center" id="team">
+  <h2>OUR TEAM</h2>
+  <p>Meet the team :</p>
+
+  <div class="w3-row">
+
+    <div class="w3-col"  style="width:20%" >
+      <img th:src="@{/images/Prachi.JPG}"alt="Boss" style="width:30% "  class="w3-circle w3-hover-opacity">
+      <h3>Prachi Raval</h3>
+      <p></p>
+    </div>
+
+    <div class="w3-col"  style="width:20%">
+      <img  th:src="@{/images/dharmik.jpg}"alt="Boss" style="width:30% " class="w3-circle w3-hover-opacity">
+      <h3>Dharmik Soni</h3>
+
+    </div>
+
+    <div class="w3-col" style="width:20%" >
+      <img th:src="@{/images/Manali.jpg}"alt="Boss" style="width:28% " class="w3-circle w3-hover-opacity">
+      <h3>Manali Shah</h3>
+
+    </div>
+
+    <div class="w3-col" style="width:20%" >
+      <img th:src="@{/images/dhairya.jpg}"alt="Boss" style="width:25% "  class="w3-circle w3-hover-opacity">
+      <h3>Dhairya Shah</h3>
+    </div>
+
+    <div class="w3-col" style="width:20%" >
+      <img th:src="@{/images/jayashree.jpeg}" alt="Boss" style="width:20% "   class="w3-circle w3-hover-opacity">
+      <h3>Jayashree R</h3>
+    </div>
+
+  </div>
+</div>
+
+<!-- Work Row -->
+<div class="w3-row-padding w3-padding-64 w3-theme-l1 bg-info" id="work">
+
+  <div >
+    <h2>Our Work</h2>
+    <p>Be The Donor is an application for helping out patients who are in need of basic amenities needed for daily usage. Items like milk, fruits,  vegetables and so on, can be ordered from out website. The admin manages an inventory for keeping track of the items. Registered patients can order items from avaialble inventory. Donors can either donate items anonymously as a credit amount or can register and select the orders placed by patients, by looking at the order details of each patient on donor dashboard.
+    Rider can see all the orders which have been paid and can select multiple orders to deliver. Rider can filter orders based on the city of the patient. Thus, our application helps out people in need along with it allows contributing to the society and earn some tips by making deliveries</p>
+</div>
+</div>
+
+
+<div class="w3-row-padding w3-center w3-padding-64" id="roles">
+  <h2>Select your role as per need</h2>
+  <p>Ask For Help, Be the donor, Serve as a Rider </p><br>
+  <div class="w3-third w3-margin-bottom">
+    <ul class="w3-ul w3-border w3-hover-shadow">
+      <li class="w3-theme bg-info">
+        <p class="w3-xlarge">Patient</p>
+      </li>
+      <li class="w3-padding-16"><b>Select Product</b></li>
+      <li class="w3-padding-16"><b>Select Product Category</b></li>
+      <li class="w3-padding-16"><b>Select Quantity</b>
+      <li class="w3-padding-16"><b>Place order</b></li>
+      <li class="w3-padding-16"><b>Sit Back and wait for your order to arrive :)</b></li>
+      <li class="w3-theme-l5 w3-padding-24 border border-info">
+        <a class="w3-bar-item w3-button" th:href="@{/api/v1/registration}">Register Now</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="w3-third w3-margin-bottom">
+    <ul class="w3-ul w3-border w3-hover-shadow">
+      <li class="w3-theme-l2 bg-info">
+        <p class="w3-xlarge">Donor</p>
+      </li>
+      <li class="w3-padding-16"><b>Donate Anonymously</b> </li>
+      <li class="w3-padding-16"><b>Select patients you want to help</b></li>
+      <li class="w3-padding-16"><b>View what the patients need</b> </li>
+      <li class="w3-padding-16"><b>Select multiple patients</b> </li>
+      <li class="w3-padding-16"><b>Checkout and Pay for the orders</b> </li>
+      <li class="w3-theme-l5 w3-padding-24 border border-info">
+        <a class="w3-bar-item w3-button" th:href="@{/api/v1/registration}">Register Now</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="w3-third w3-margin-bottom">
+    <ul class="w3-ul w3-border w3-hover-shadow">
+      <li class="w3-theme bg-info">
+        <p class="w3-xlarge">Rider</p>
+      </li>
+      <li class="w3-padding-16"><b>Register as a Rider</b> </li>
+      <li class="w3-padding-16"><b>Select your city</b></li>
+      <li class="w3-padding-16"><b>View patients who need help in your city</b> </li>
+      <li class="w3-padding-16"><b>Select multiple patients you want to deliver</b> </li>
+      <li class="w3-padding-16"><b>Pick up the order and deliver, earn tips and blessings!!</b> </li>
+      <li class="w3-theme-l5 w3-padding-24 border-info border">
+        <a class="w3-bar-item w3-button" th:href="@{/api/v1/registration}">Register Now</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Contact Container -->
+<div class="w3-container w3-padding-64 w3-theme-l5" id="contact">
+  <div class="w3-row">
+    <div class="w3-col m5">
+      <div class="w3-padding-16"><span class="w3-xlarge  border-bottom border-info">Contact Us</span></div>
+      <h3>Address</h3>
+      <p>Dalhousie University.</p>
+      <p><i class="fa fa-map-marker text-info w3-xlarge"></i>  Halifax, Canada</p>
+      <p><i class="fa fa-phone text-info w3-xlarge"></i>  +19029932608</p>
+      <p><i class="fa fa-envelope-o text-info w3-xlarge"></i>  bethedonor051@gmail.com</p>
+    </div>
+    <div class="w3-col m7">
+      <form class="w3-container w3-card-4 w3-padding-16 w3-white border-info border" action="/action_page.php" target="_blank">
+        <div class="w3-section">
+          <label>Name</label>
+          <input class="w3-input" type="text" name="Name" required>
+        </div>
+        <div class="w3-section">
+          <label >Email</label>
+          <input class="w3-input" type="text" name="Email" required>
+        </div>
+        <div class="w3-section">
+          <label>Message</label>
+          <input class="w3-input" type="text" name="Message" required>
+        </div>
+        <input class="w3-check" type="checkbox" checked name="Like">
+        <label>I Like it!</label>
+        <button type="submit" class="btn btn-info w3-right">Send</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Footer -->
+    <footer class="page-footer font-small ">
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2022 Copyright:
+        <a href="#" class="text-info"> bethedonor.com </a>
+      </div>
+      <!-- Copyright -->
+
+    </footer>
+<script>
+  // Script for side navigation
+  function w3_open() {
+    var x = document.getElementById("mySidebar");
+    x.style.width = "300px";
+    x.style.paddingTop = "10%";
+    x.style.display = "block";
+  }
+
+  // Close side navigation
+  function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+  }
+
+  // Used to toggle the menu on smaller screens when clicking on the menu button
+  function openNav() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+      x.className += " w3-show";
+    } else {
+      x.className = x.className.replace(" w3-show", "");
+    }
+  }
+</script>
+
+
+
+</section>
+</body>
+</html>
